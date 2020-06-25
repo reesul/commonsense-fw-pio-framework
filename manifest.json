@@ -5,6 +5,12 @@
             "system": "*",
             "url": "https://bitbucket.org/ccsg-res/commonsense-pio-framework/src/master/framework-commonsense-0.0.1.tar.bz2",
             "version": "0.0.1"
+        },
+        {
+            "sha1": "f859d2a01db666c48afbf26dc57fc988e65c2421",
+            "system": "*",
+            "url": "https://bitbucket.org/ccsg-res/commonsense-pio-framework/src/master/framework-commonsense-0.0.2.tar.bz2",
+            "version": "0.0.2"
         }
     ]
 }
