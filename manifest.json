@@ -15,7 +15,7 @@
         {
             "sha1": "bf86447117640e8aac232b98d8f3bc5e8b78f5f4",
             "system": "*",
-            "url": "hhttps://bitbucket.org/ccsg-res/commonsense-pio-framework/raw/HEAD/framework-commonsense-0.1.0.tar.bz2",
+            "url": "https://bitbucket.org/ccsg-res/commonsense-pio-framework/raw/HEAD/framework-commonsense-0.1.0.tar.bz2",
             "version": "0.1.0"
         }
     ]
