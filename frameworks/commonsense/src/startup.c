@@ -131,7 +131,7 @@ void SystemInit( void )
 
 }
 
-void SystemInit_dep( void )
+void SystemInit_deprecated( void )
 {
 
   /* Use the LDO regulator by default */
