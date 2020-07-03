@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "commonsense.h"
+#include <sam.h>
 
 
 #define PORT_BASE  (*(RwReg  *)0x41008000UL) 
@@ -29,7 +29,6 @@
 #define PIN_OUTPUT_LOW      0
 
 
-//code goes here
 void pin_config(uint8_t port, uint8_t pin, uint8_t mode);
 
 void pin_direction(uint8_t port, uint8_t pin, uint8_t direction);

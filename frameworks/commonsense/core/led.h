@@ -8,14 +8,12 @@
 
 #include <sam.h>
 
-#include "commonsense.h"
 #include "pinConfig.h"
-
-#define LED_ON 1
-#define LED_OFF 0
 
 #ifdef __CS_V_2_0__
 
+#define LED_ON 0
+#define LED_OFF 1
 #define LED_PORT 1 //port B
 #define LED_PIN_RED 26
 #define LED_PIN_RED_MASK PORT_PB26
