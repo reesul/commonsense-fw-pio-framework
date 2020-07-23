@@ -23,6 +23,12 @@
             "system": "*",
             "url": "https://bitbucket.org/ccsg-res/commonsense-pio-framework/raw/HEAD/framework-commonsense-0.2.0.tar.bz2",
             "version": "0.2.0"
+        },
+        {
+            "sha1": "17ca10aa69735eeed69f0d5b15717b23dda3ff99",
+            "system": "*",
+            "url": "https://bitbucket.org/ccsg-res/commonsense-pio-framework/raw/HEAD/framework-commonsense-0.3.0.tar.bz2",
+            "version": "0.3.0"
         }
     ]
 }
