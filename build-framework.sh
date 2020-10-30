@@ -24,7 +24,7 @@ PACKAGE_FILENAME=$SOURCE_DIR"package.json"
 TARGET_FILENAME="framework-commonsense-$VERSION.tar.bz2"
 
 echo "Updating version in package.json"
-# node update_framework_package_json.js $PACKAGE_FILENAME $VERSION
+node update_framework_package_json.js $PACKAGE_FILENAME $VERSION
 
 pushd $SOURCE_DIR
 find . -type f -name ".DS_Store" -delete

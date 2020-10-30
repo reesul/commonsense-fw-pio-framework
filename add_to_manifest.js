@@ -47,6 +47,7 @@ else {
     entries[Object.keys(entries).length] = (desired_entry)
 }
 
+console.log(desired_entry)
 // console.log(manifest)
 
 fs.writeFile(MANIFEST_FILE, JSON.stringify(manifest, null, 4), function(err) {
