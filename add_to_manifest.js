@@ -1,7 +1,7 @@
 fs = require('fs')
 
 const FRAMEWORK_STRING = 'framework-commonsense'
-const BASE_URL = "https://bitbucket.org/ccsg-res/commonsense-pio-framework/raw/HEAD/"
+const BASE_URL = "https://bitbucket.org/ccsg-res/commonsense-pio-framework/raw/master/"
 const MANIFEST_FILE = './manifest.json'
 console.log('\n\nAdding SHA and filename to the manifest.json') 
 
