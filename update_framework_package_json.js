@@ -10,6 +10,6 @@ console.log(package)
 
 package.version = version
 
-fs.writeFile(package_file, JSON.stringify(package, null, 4), function(err) {
+fs.writeFile(package_file, JSON.stringify(package, null, 2), function(err) {
     if (err) console.log(err);
 });

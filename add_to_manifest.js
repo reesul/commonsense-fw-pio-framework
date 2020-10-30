@@ -50,7 +50,7 @@ else {
 console.log(desired_entry)
 // console.log(manifest)
 
-fs.writeFile(MANIFEST_FILE, JSON.stringify(manifest, null, 4), function(err) {
+fs.writeFile(MANIFEST_FILE, JSON.stringify(manifest, null, 2), function(err) {
     if (err) console.log(err);
 });
 
