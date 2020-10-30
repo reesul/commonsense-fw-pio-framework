@@ -32,7 +32,7 @@
         },
         {
             "sha1": "f22b19165987228248c45e7f4a9b78ec968b1cce",
-            "system": "darwin_x86_64",
+            "system": "*",
             "url": "https://bitbucket.org/ccsg-res/commonsense-pio-framework/raw/HEAD/framework-commonsense-0.4.0.tar.bz2",
             "version": "0.4.0"
         }
