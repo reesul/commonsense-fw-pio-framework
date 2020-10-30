@@ -31,19 +31,7 @@
             "version": "0.3.0"
         },
         {
-            "sha1": "86b22bba7e0e9f48fb0a34493bbbc76c1cdd5158",
-            "system": "*",
-            "url": "https://bitbucket.org/ccsg-res/commonsense-pio-framework/raw/HEAD/framework-commonsense-0.4.0.tar.bz2",
-            "version": "0.4.0"
-        },
-        {
-            "sha1": "86b22bba7e0e9f48fb0a34493bbbc76c1cdd5158",
-            "system": "*",
-            "url": "https://bitbucket.org/ccsg-res/commonsense-pio-framework/raw/HEAD/framework-commonsense-0.4.0.tar.bz2",
-            "version": "0.4.0"
-        },
-        {
-            "sha1": "c22175dd1ecbbcc535ae80843c5114086cb1df37",
+            "sha1": "b9ed707516d5678654c8239c5f74448ccaf6ffc8",
             "system": "*",
             "url": "https://bitbucket.org/ccsg-res/commonsense-pio-framework/raw/HEAD/framework-commonsense-0.4.0.tar.bz2",
             "version": "0.4.0"

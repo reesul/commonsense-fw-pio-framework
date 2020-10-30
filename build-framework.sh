@@ -35,6 +35,8 @@ COPYFILE_DISABLE=1 tar -jcf $TARGET_FILENAME $SOURCE_DIR
 
 echo "Computing SHA1 digest..."
 SHA=`openssl dgst -sha1 $TARGET_FILENAME | sed 's/^.* //'`  #https://unix.stackexchange.com/questions/42797/openssl-dgst-sha1-producing-an-extraneous-stdin-prefix-and-trailing-new 
+echo $SHA
 ls -al $TARGET_FILENAME
+
 echo $VERSION
 node add_to_manifest $TARGET_FILENAME $VERSION $SHA

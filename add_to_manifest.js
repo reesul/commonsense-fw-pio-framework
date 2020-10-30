@@ -23,10 +23,11 @@ let entries = manifest[FRAMEWORK_STRING]
 let is_found = false
 let desired_entry;
 for (entry of entries) {
-    if (entry.url === BASE_URL) {
+    if (entry.url === URL) {
         console.log(entry)
         is_found = true
         desired_entry = entry
+        break;
     }
 }
 
