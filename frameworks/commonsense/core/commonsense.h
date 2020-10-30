@@ -11,6 +11,7 @@
 //Definitions
 
 //Framework includes
+#include "pinMap.h"
 #include "pinConfig.h"
 #include "led.h"
 
