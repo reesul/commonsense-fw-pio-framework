@@ -19,9 +19,12 @@
 # Once that is done, commit the changes to the [target-dir] and push.
 
 VERSION=$1
-
 SOURCE_DIR="frameworks/commonsense/"
+PACKAGE_FILENAME=$SOURCE_DIR"package.json"
 TARGET_FILENAME="framework-commonsense-$VERSION.tar.bz2"
+
+echo "Updating version in package.json"
+node update_framework_package_json.js $PACKAGE_FILENAME $VERSION
 
 pushd $SOURCE_DIR
 find . -type f -name ".DS_Store" -delete
@@ -29,10 +32,9 @@ find . -type f -name "._*" -delete
 popd
 echo "Creating tarball..."
 COPYFILE_DISABLE=1 tar -jcf $TARGET_FILENAME $SOURCE_DIR
+
 echo "Computing SHA1 digest..."
 SHA=`openssl dgst -sha1 $TARGET_FILENAME | sed 's/^.* //'`  #https://unix.stackexchange.com/questions/42797/openssl-dgst-sha1-producing-an-extraneous-stdin-prefix-and-trailing-new 
-echo "Computed SHA"
-echo $SHA
 ls -al $TARGET_FILENAME
 echo $VERSION
 node add_to_manifest $TARGET_FILENAME $VERSION $SHA

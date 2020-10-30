@@ -51,3 +51,12 @@ else {
 fs.writeFile(MANIFEST_FILE, JSON.stringify(manifest, null, 4), function(err) {
     if (err) console.log(err);
 });
+
+
+
+
+
+
+
+
+
