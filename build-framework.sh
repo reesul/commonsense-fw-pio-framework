@@ -31,7 +31,7 @@ find . -type f -name ".DS_Store" -delete
 find . -type f -name "._*" -delete
 popd
 echo "Creating tarball..."
-COPYFILE_DISABLE=1 tar -jcf $TARGET_FILENAME $SOURCE_DIR
+COPYFILE_DISABLE=1 tar -czvf $TARGET_FILENAME $SOURCE_DIR
 
 echo "Computing SHA1 digest..."
 SHA=`openssl dgst -sha1 $TARGET_FILENAME | sed 's/^.* //'`  #https://unix.stackexchange.com/questions/42797/openssl-dgst-sha1-producing-an-extraneous-stdin-prefix-and-trailing-new 

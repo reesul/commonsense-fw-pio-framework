@@ -41,9 +41,9 @@
       "system": "*",
       "url": "https://bitbucket.org/ccsg-res/commonsense-pio-framework/raw/master/framework-commonsense-0.4.1.tar.bz2",
       "version": "0.4.1"
-    }
+    },
     {
-      "sha1": "0e97a080557ef828124a513a213c8a018a2d2b7e",
+      "sha1": "48bb28802394a8f96f16751ef8fdc4efe622a4ae",
       "system": "*",
       "url": "https://bitbucket.org/ccsg-res/commonsense-pio-framework/raw/master/framework-commonsense-0.4.2.tar.gz",
       "version": "0.4.2"
