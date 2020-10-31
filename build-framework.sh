@@ -23,6 +23,7 @@ SOURCE_DIR="frameworks/commonsense/"
 PACKAGE_FILENAME=$SOURCE_DIR"package.json"
 # TARGET_FILENAME="framework-commonsense-$VERSION.tar.gz"
 TARGET_FILENAME="framework-commonsense-$VERSION.zip"
+STATIC_FILENAME="framework-commonsense-current.zip"
 
 echo "Updating version in package.json"
 node update_framework_package_json.js $PACKAGE_FILENAME $VERSION
@@ -50,3 +51,5 @@ ls -al $TARGET_FILENAME
 
 echo $VERSION
 node add_to_manifest $TARGET_FILENAME $VERSION $SHA
+
+cp $TARGET_FILENAME $STATIC_FILENAME
