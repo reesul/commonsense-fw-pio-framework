@@ -21,7 +21,7 @@
 VERSION=$1
 SOURCE_DIR="frameworks/commonsense/"
 PACKAGE_FILENAME=$SOURCE_DIR"package.json"
-TARGET_FILENAME="framework-commonsense-$VERSION.tar.bz2"
+TARGET_FILENAME="framework-commonsense-$VERSION.tar.gz"
 
 echo "Updating version in package.json"
 node update_framework_package_json.js $PACKAGE_FILENAME $VERSION
