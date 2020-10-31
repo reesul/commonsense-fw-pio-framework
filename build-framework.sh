@@ -21,8 +21,8 @@
 VERSION=$1
 SOURCE_DIR="frameworks/commonsense/"
 PACKAGE_FILENAME=$SOURCE_DIR"package.json"
-# TARGET_FILENAME="framework-commonsense-$VERSION.tar.gz"
-TARGET_FILENAME="framework-commonsense-$VERSION.zip"
+TARGET_FILENAME="framework-commonsense-$VERSION.tar.gz"
+# TARGET_FILENAME="framework-commonsense-$VERSION.zip"
 
 echo "Updating version in package.json"
 node update_framework_package_json.js $PACKAGE_FILENAME $VERSION
@@ -37,7 +37,9 @@ echo "Creating tarball..."
 # COPYFILE_DISABLE=1 zip -r $TARGET_FILENAME $SOURCE_DIR
 
 cd $SOURCE_DIR
-COPYFILE_DISABLE=1 zip -r ../../$TARGET_FILENAME ./*
+# COPYFILE_DISABLE=1 zip -r ../../$TARGET_FILENAME ./*
+COPYFILE_DISABLE=1 tar -czvf ../../$TARGET_FILENAME ./*
+
 cd ../../
 pwd
 
