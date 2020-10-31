@@ -21,10 +21,19 @@ Sometimes PIO does not index all the files within the framework, and it will thi
 
 PlatformIO is now hosting packages for users, so this framework can be directly published with them. There appears to be a short waiting period, so the developers of this repo should be certain what they are publishing works as intended!
 
+
+#### Below is supposed to work, but does not due to PIO errors! Skip to the next heading of this size for now (written 10/31/20)
+
 To publish a package, first tarball the framework. Navigate into /frameworks/commonsense. Make sure to increment some part of the version number in ```package.json```, or else publishing this version will be ignored as a duplicate. Run ```pio package pack -o ../../published_packages``` to let PIO create this tarball itself (some in the team have noticed strangeness when trying to create the tarball manually from CLI). Use the -o option to specify where the tarball is stored in the repo. 
 
 Next, we'll publish the package. Navigate to ```/published_packages/```. Publish by running ```pio package publish ./name-of-package.tar.gz```. If all is well, it will give a postive response, and probably indicate that it is under review. This seems to take the better part of a day, at the least. Hopefully this drops as we publish more often and gain some trust.
 
+
+#### Stopgap publishing method
+
+PIO seems to have some issues after a recent major version upgrade, so the package-publish flow is slightly different in the short term. Still run the ```pio package pack``` from ```/frameworks/commonsense```, but do not include a place for the file to be written. Let it stay here. Run ```pio package publish```. It should indicate the publish is under review. Move the file to the published directory, ```mv framework-commonsense-VERSION.tar.gz ../../published_packages``` to make sure it these archives don't snowball within later published versions. 
+
+We will revisit this method in the future (early 2021) to have something more convenient. 
 
 ## How do I test the framework, as a developer?
 
