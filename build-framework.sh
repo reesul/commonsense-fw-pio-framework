@@ -21,7 +21,8 @@
 VERSION=$1
 SOURCE_DIR="frameworks/commonsense/"
 PACKAGE_FILENAME=$SOURCE_DIR"package.json"
-TARGET_FILENAME="framework-commonsense-$VERSION.tar.gz"
+# TARGET_FILENAME="framework-commonsense-$VERSION.tar.gz"
+TARGET_FILENAME="framework-commonsense-$VERSION.zip"
 
 echo "Updating version in package.json"
 node update_framework_package_json.js $PACKAGE_FILENAME $VERSION
@@ -31,7 +32,9 @@ find . -type f -name ".DS_Store" -delete
 find . -type f -name "._*" -delete
 popd
 echo "Creating tarball..."
-COPYFILE_DISABLE=1 tar -czvf $TARGET_FILENAME $SOURCE_DIR
+# COPYFILE_DISABLE=1 tar -czvf $TARGET_FILENAME $SOURCE_DIR
+COPYFILE_DISABLE=1 zip $TARGET_FILENAME $SOURCE_DIR
+
 
 echo "Computing SHA1 digest..."
 SHA=`openssl dgst -sha1 $TARGET_FILENAME | sed 's/^.* //'`  #https://unix.stackexchange.com/questions/42797/openssl-dgst-sha1-producing-an-extraneous-stdin-prefix-and-trailing-new 
