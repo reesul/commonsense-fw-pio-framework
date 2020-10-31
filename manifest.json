@@ -55,10 +55,10 @@
       "version": "0.4.3"
     },
     {
-      "sha1": "87d26d70db03137711ea3350aa93f1143c0dd036",
       "system": "*",
       "url": "https://bitbucket.org/ccsg-res/commonsense-pio-framework/raw/master/framework-commonsense-0.4.4.zip",
-      "version": "0.4.4"
+      "version": "0.4.4",
+      "sha1": "499f7dcd9b68fe753ed0312102002c17961f250b"
     }
   ]
 }

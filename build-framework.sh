@@ -32,8 +32,13 @@ find . -type f -name ".DS_Store" -delete
 find . -type f -name "._*" -delete
 popd
 echo "Creating tarball..."
+cd $SOURCE_DIR
+pwd
 # COPYFILE_DISABLE=1 tar -czvf $TARGET_FILENAME $SOURCE_DIR
-COPYFILE_DISABLE=1 zip $TARGET_FILENAME $SOURCE_DIR
+# COPYFILE_DISABLE=1 zip $TARGET_FILENAME $SOURCE_DIR
+COPYFILE_DISABLE=1 zip ../../$TARGET_FILENAME ./*
+cd ../../
+pwd
 
 
 echo "Computing SHA1 digest..."
