@@ -83,6 +83,17 @@
       "system": "*",
       "url": "https://bitbucket.org/ccsg-res/commonsense-pio-framework/raw/master/framework-commonsense-0.4.8.zip",
       "version": "0.4.8"
+    },
+    {
+      "system": "*",
+      "url": "https://bitbucket.org/ccsg-res/commonsense-pio-framework/raw/master/framework-commonsense-.zip",
+      "version": "c7c8912adf0776e32eea47bcb42de6551ad65f09"
+    },
+    {
+      "sha1": "8f3185a45269928e8958da8408f8a7763b0c6185",
+      "system": "*",
+      "url": "https://bitbucket.org/ccsg-res/commonsense-pio-framework/raw/master/framework-commonsense-0.4.9.zip",
+      "version": "0.4.9"
     }
   ]
 }
