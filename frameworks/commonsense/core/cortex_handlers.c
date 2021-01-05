@@ -45,7 +45,7 @@ void UsageFault_Handler          ( void ) __attribute__ ((weak, alias("Dummy_Han
 void SVC_Handler                 ( void ) __attribute__ ((weak, alias("Dummy_Handler")));
 void DebugMon_Handler            ( void ) __attribute__ ((weak, alias("Dummy_Handler")));
 void PendSV_Handler              ( void ) __attribute__ ((weak, alias("Dummy_Handler")));
-void SysTick_Handler			 ( void );
+void SysTick_Handler			 ( void ) __attribute__ ((weak, alias("Null_SysTick_Handler")));
 
 /* Peripherals handlers */
 void PM_Handler                  ( void ) __attribute__ ((weak, alias("Dummy_Handler")));
@@ -391,7 +391,7 @@ void Reset_Handler(void)
 }
 
 
-void SysTick_Handler(void)
+void Null_SysTick_Handler(void)
 {
 
 }
