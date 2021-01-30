@@ -6,12 +6,12 @@
 
 #pragma once
 
-#include <sam.h>
+#include <sam.h> 
 
 //Definitions
 
 //Framework includes
-#include "pinMap.h"
-#include "pinConfig.h"
-#include "led.h"
+#include "cs_pin_mapping.h"
+#include "cs_pin_config.h"
+#include "cs_led.h"
 

@@ -29,12 +29,12 @@
 #define PIN_OUTPUT_LOW      0
 
 
-void pin_config(uint8_t port, uint8_t pin, uint8_t mode);
+void cs_pin_config(uint8_t port, uint8_t pin, uint8_t mode);
 
-void pin_direction(uint8_t port, uint8_t pin, uint8_t direction);
+void cs_pin_direction(uint8_t port, uint8_t pin, uint8_t direction);
 
-void pin_output(uint8_t port, uint8_t pin, uint8_t direction);
+void cs_pin_output(uint8_t port, uint8_t pin, uint8_t direction);
 
-void pin_reset(uint8_t port, uint8_t pin);
+void cs_pin_reset(uint8_t port, uint8_t pin);
 
-void pin_peripheral_config(uint8_t port, uint8_t pin, uint8_t mux_option);
+void cs_pin_set_pinmux(uint8_t port, uint8_t pin, uint8_t mux_option);
