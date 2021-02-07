@@ -3,5 +3,5 @@
   "description": "Common Sense Framework containing the essentials for building CommonSense projects",
   "system": "*",
   "url": "https://bitbucket.org/ccsg-res/commonsense-pio-packages/commonsense/src",
-  "version": "0.5.1"
+  "version": "0.6.0"
 }
