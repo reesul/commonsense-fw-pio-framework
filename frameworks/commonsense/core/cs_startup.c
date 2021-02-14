@@ -21,6 +21,8 @@
 
 #include <stdio.h>
 
+#include "cs_clock.h"
+
 // Constants for Clock generators
 #define GENERIC_CLOCK_GENERATOR_MAIN      (0u)
 
@@ -45,7 +47,6 @@
 // Constants for Clock multiplexers
 #define GENERIC_CLOCK_MULTIPLEXER_DFLL48M (0u)
 
-#define XOSC32_FREQ 32768
 
 void SystemInit( void )
 {
@@ -70,37 +71,44 @@ void SystemInit( void )
   /* ----------------------------------------------------------------------------------------------
    * 2) Put XOSC32K as source of Generic Clock Generator 3
    */
-  GCLK->GENCTRL[GENERIC_CLOCK_GENERATOR_XOSC32K].reg = GCLK_GENCTRL_SRC(GCLK_GENCTRL_SRC_XOSC32K) | //generic clock gen 3
-    GCLK_GENCTRL_GENEN;
+  // GCLK->GENCTRL[GENERIC_CLOCK_GENERATOR_XOSC32K].reg = GCLK_GENCTRL_SRC(GCLK_GENCTRL_SRC_XOSC32K) | //generic clock gen 3
+  //   GCLK_GENCTRL_GENEN;
  
 
-  while ( GCLK->SYNCBUSY.reg & GCLK_SYNCBUSY_GENCTRL3 );
+  // while ( GCLK->SYNCBUSY.reg & GCLK_SYNCBUSY_GENCTRL3 );
+  cs_clock_init_gclk(3, GCLK_GENCTRL_SRC_XOSC32K, CLOCK_DIVIDER_UNITY); //
 
 	
   /* ------------------------------------------------------------------------
   * 3. Set up the PLL
   */
-  OSCCTRL->Dpll[0].DPLLCTRLA.reg = 0;
-	while (OSCCTRL->Dpll[0].DPLLSYNCBUSY.bit.ENABLE);
+  // OSCCTRL->Dpll[0].DPLLCTRLA.reg = 0;
+	// while (OSCCTRL->Dpll[0].DPLLSYNCBUSY.bit.ENABLE);
 
-  //PLL0 set based on defined F_CPU value
-  uint32_t ldr_ratio = (F_CPU / XOSC32_FREQ) - 1;
-  uint32_t ldr_frac = 32 * (F_CPU - (XOSC32_FREQ * (ldr_ratio + 1)) ) / XOSC32_FREQ;
-  OSCCTRL->Dpll[0].DPLLRATIO.reg = OSCCTRL_DPLLRATIO_LDRFRAC(ldr_frac) | OSCCTRL_DPLLRATIO_LDR(ldr_ratio);
+  // //PLL0 set based on defined F_CPU value
+  // uint32_t ldr_ratio = (F_CPU / XOSC32_FREQ) - 1;
+  // uint32_t ldr_frac = 32 * (F_CPU - (XOSC32_FREQ * (ldr_ratio + 1)) ) / XOSC32_FREQ;
+  // OSCCTRL->Dpll[0].DPLLRATIO.reg = OSCCTRL_DPLLRATIO_LDRFRAC(ldr_frac) | OSCCTRL_DPLLRATIO_LDR(ldr_ratio);
   
-  while(OSCCTRL->Dpll[0].DPLLSYNCBUSY.bit.DPLLRATIO);
+  // while(OSCCTRL->Dpll[0].DPLLSYNCBUSY.bit.DPLLRATIO);
   
-  //MUST USE LBYPASS DUE TO BUG IN REV A OF SAMD51
-  // OSCCTRL->Dpll[0].DPLLCTRLB.reg = OSCCTRL_DPLLCTRLB_REFCLK_GCLK | OSCCTRL_DPLLCTRLB_LBYPASS;
-  OSCCTRL->Dpll[0].DPLLCTRLB.reg = OSCCTRL_DPLLCTRLB_REFCLK_XOSC32 | OSCCTRL_DPLLCTRLB_LBYPASS; //use 32kHz ext osc
+  // //MUST USE LBYPASS DUE TO BUG IN REV A OF SAMD51
+  // // OSCCTRL->Dpll[0].DPLLCTRLB.reg = OSCCTRL_DPLLCTRLB_REFCLK_GCLK | OSCCTRL_DPLLCTRLB_LBYPASS;
+  // OSCCTRL->Dpll[0].DPLLCTRLB.reg = OSCCTRL_DPLLCTRLB_REFCLK_XOSC32 | OSCCTRL_DPLLCTRLB_LBYPASS; //use 32kHz ext osc
 
-  OSCCTRL->Dpll[0].DPLLCTRLA.reg = OSCCTRL_DPLLCTRLA_ENABLE;
+  // OSCCTRL->Dpll[0].DPLLCTRLA.reg = OSCCTRL_DPLLCTRLA_ENABLE;
 
-  while( OSCCTRL->Dpll[0].DPLLSTATUS.bit.CLKRDY == 0 || OSCCTRL->Dpll[0].DPLLSTATUS.bit.LOCK == 0 );
+  // while( OSCCTRL->Dpll[0].DPLLSTATUS.bit.CLKRDY == 0 || OSCCTRL->Dpll[0].DPLLSTATUS.bit.LOCK == 0 );
+  cs_clock_init_pll(0, F_CPU);
 
-  
   /*---------------------------------------------------------------------
-   * 4. Set up main clock
+   * 4. Set up peripheral clock generators
+   */
+   cs_clock_init_gclk(4, GCLK_GENCTRL_SRC_DPLL0, F_CPU/F_GCLK4);
+
+
+  /*---------------------------------------------------------------------
+   * 5. Set up main clock
    */
   
   GCLK->GENCTRL[GENERIC_CLOCK_GENERATOR_MAIN].reg = GCLK_GENCTRL_SRC(MAIN_CLOCK_SOURCE) |
@@ -108,11 +116,15 @@ void SystemInit( void )
     //GCLK_GENCTRL_OE |
     GCLK_GENCTRL_GENEN;
   
-
   while ( GCLK->SYNCBUSY.reg & GCLK_SYNCBUSY_GENCTRL0 );
   
   MCLK->CPUDIV.reg = MCLK_CPUDIV_DIV_DIV1;
+
+  /*---------------------------------------------------------------------
+   * 6. Disable the DFLL to save power
+   */
   
+  // OSCCTRL->DFLLCTRLA.reg = 0;
   
   /* If desired, enable cache! */
 #if defined(ENABLE_CACHE)

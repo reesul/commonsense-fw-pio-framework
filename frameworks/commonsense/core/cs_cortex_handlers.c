@@ -31,7 +31,7 @@ void Dummy_Handler(void)
 #if defined DEBUG
   __BKPT(3);
 #endif
-  for (;;) { }
+  for(;;){}
 }
 
 
@@ -190,8 +190,13 @@ extern uint32_t __bss_start__;
 extern uint32_t __bss_end__;
 extern uint32_t __StackTop;
 
+
+
+
+
 /* Exception Table */
-__attribute__ ((section(".isr_vector"))) const DeviceVectors exception_table =
+__attribute__ ((section(".isr_vector"))) 
+const DeviceVectors exception_table =
 {
 	/* Configure Initial Stack Pointer, using linker-generated symbols */
 	(void*) (&__StackTop),
@@ -354,11 +359,10 @@ __attribute__ ((section(".isr_vector"))) const DeviceVectors exception_table =
 };
 
 extern int main(void);
+extern void __libc_init_array(void);
 
-/* This is called on processor reset to initialize the device and call main() */
-void Reset_Handler(void)
-{
-  uint32_t *pSrc, *pDest;
+void linker_setup(void) {
+	uint32_t *pSrc, *pDest;
 
   /* Initialize the initialized data section */
   pSrc = &__etext;
@@ -374,6 +378,18 @@ void Reset_Handler(void)
     for (pDest = &__bss_start__; pDest < &__bss_end__; pDest++)
       *pDest = 0;
   }
+
+}
+
+
+/* This is called on processor reset to initialize the device and call main() */
+void Reset_Handler(void)
+{
+
+	linker_setup();
+
+	// __libc_init_array();	//this seems important, but seems to cause faults...
+
 
 #if defined(__FPU_USED) && defined(__SAMD51__)
 	/* Enable FPU */

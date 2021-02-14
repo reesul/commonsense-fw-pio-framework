@@ -60,6 +60,7 @@ void cs_debug_usart_init() {//replace with status/configuration return type
 
     //Configure peripheral clocks PCHCTRL for general clock interface
     //peripheral clock SERCOM4_CORE= 34; SLOW=3. SLOW not needed, for now.
+	//TODO: replace with calls to clock library
     GCLK->PCHCTRL[SERCOM4_GCLK_ID_CORE].reg = GCLK_PCHCTRL_GEN_GCLK4 | GCLK_PCHCTRL_CHEN; 
     GCLK->PCHCTRL[SERCOM4_GCLK_ID_SLOW].reg = GCLK_PCHCTRL_GEN_GCLK3 | GCLK_PCHCTRL_CHEN; 
 

@@ -20,8 +20,9 @@
 
 #include "cs_pin_mapping.h"
 #include "cs_pin_config.h"
-
 #include "cs_led.h"
+
+#include "cs_sleep.h"
 
 #include "cs_stdio_redirect.h"
 #include "cs_debug_logger.h"

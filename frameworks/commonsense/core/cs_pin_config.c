@@ -62,10 +62,10 @@ void cs_pin_config(uint8_t port, uint8_t pin, uint8_t mode) {
 void cs_pin_direction(uint8_t port, uint8_t pin, uint8_t direction) {
 
     if (direction != 0) {
-        PORT->Group[port].DIRSET.reg |= 1 << pin;
+        PORT->Group[port].DIRSET.reg = 1 << pin;
     } 
     else {
-        PORT->Group[port].DIRCLR.reg |= 1 << pin;
+        PORT->Group[port].DIRCLR.reg = 1 << pin;
     }
 }
 
