@@ -35,7 +35,7 @@
 #define _HPL_USB_DEVICE_H_INCLUDED
 
 #include <hpl_usb.h>
-// #include "hpl_usb_config.h"
+#include "hpl_usb_config.h"
 
 #ifdef __cplusplus
 extern "C" {
