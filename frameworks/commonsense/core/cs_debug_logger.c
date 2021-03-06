@@ -3,7 +3,7 @@
 struct usart_sync_descriptor TARGET_IO; //STDIO will redirect all IO through this interface; default to SERCOM4 USRT (Synchronous!)
 
 
-void _config_debug_usart() {
+void _config_debug_usart(int baudrate) {
     const void* hw = SERCOM4;
 
     // usart_configuration_t cx = SERCOM_CONFIGURATION(4);
@@ -30,7 +30,7 @@ void _config_debug_usart() {
 	hri_sercomusart_write_CTRLC_reg(hw, ctrlc);
 
 
-	uint16_t baud = 65536 - ((65536 * 16.0f * DEBUG_USART_BAUD) / 12000000);//2^16-3774; equation changes under different SAMPR values
+	uint16_t baud = 65536 - ((65536 * 16.0f * baudrate) / 12000000);//2^16-3774; equation changes under different SAMPR values
 	// uint16_t baud = 65536 - ((65536 * 16.0f * F_GCLK4) / 12000000);
 	uint16_t fractional = SERCOM_USART_BAUD_FRAC_BAUD(0);
 
@@ -49,13 +49,15 @@ void _config_debug_usart() {
 
 }
 
-void cs_debug_init() {
-
-	cs_debug_usart_init();
-
+void cs_debug_init_default_baud() {
+	cs_debug_usart_init(DEFAULT_DEBUG_USART_BAUD);
 }
 
-void cs_debug_usart_init() {//replace with status/configuration return type
+void cs_debug_init(int baudrate) {
+	cs_debug_usart_init(baudrate);
+}
+
+void cs_debug_usart_init(int baudrate) {//replace with status/configuration return type
     //Assume GCLK 4 at 12MHz!!
 
     //Configure peripheral clocks PCHCTRL for general clock interface
@@ -71,7 +73,7 @@ void cs_debug_usart_init() {//replace with status/configuration return type
     usart_sync_init(&TARGET_IO, SERCOM4, (void *)NULL);
 	TARGET_IO.io.read  = usart_sync_read;
 	TARGET_IO.io.write = usart_sync_write;
-	_config_debug_usart();
+	_config_debug_usart(baudrate);
 
     //init pins for SERCOM
     cs_pin_set_pinmux(DEBUG_SERIAL_PORT, DEBUG_SERIAL_PIN_TX, PINMUX_PB08D_SERCOM4_PAD0);
