@@ -9,13 +9,14 @@
 #include <utils_assert.h>
 #include <hal_usart_sync.h>
 
-#define DEBUG_USART_BAUD 230400
+#define DEFAULT_DEBUG_USART_BAUD 230400
 
 // struct usart_sync_descriptor TARGET_IO; //STDIO will redirect all IO through this interface; default to SERCOM4 USRT (Synchronous!)
 
 
-void cs_debug_init();
-void cs_debug_usart_init();//replace with status/configuration return type
+void cs_debug_init(int baudrate);
+void cs_debug_init_default_baud();
+void cs_debug_usart_init(int baudrate);//replace with status/configuration return type
 void cs_debug_usart_deinit();
 
 void cs_debug_enable();
