@@ -194,48 +194,48 @@ static inline hri_dsu_did_reg_t hri_dsu_read_DID_reg(const void *const hw)
 
 static inline bool hri_dsu_get_ENTRY0_EPRES_bit(const void *const hw)
 {
-	return (((Dsu *)hw)->ENTRY[0].reg & DSU_ENTRY_EPRES) >> DSU_ENTRY_EPRES_Pos;
+	return (((Dsu *)hw)->ENTRY0.reg & DSU_ENTRY0_EPRES) >> DSU_ENTRY0_EPRES_Pos;
 }
 
 static inline bool hri_dsu_get_ENTRY0_FMT_bit(const void *const hw)
 {
-	return (((Dsu *)hw)->ENTRY[0].reg & DSU_ENTRY_FMT) >> DSU_ENTRY_FMT_Pos;
+	return (((Dsu *)hw)->ENTRY0.reg & DSU_ENTRY0_FMT) >> DSU_ENTRY0_FMT_Pos;
 }
 
 static inline hri_dsu_entry0_reg_t hri_dsu_get_ENTRY0_ADDOFF_bf(const void *const hw, hri_dsu_entry0_reg_t mask)
 {
-	return (((Dsu *)hw)->ENTRY[0].reg & DSU_ENTRY_ADDOFF(mask)) >> DSU_ENTRY_ADDOFF_Pos;
+	return (((Dsu *)hw)->ENTRY0.reg & DSU_ENTRY0_ADDOFF(mask)) >> DSU_ENTRY0_ADDOFF_Pos;
 }
 
 static inline hri_dsu_entry0_reg_t hri_dsu_read_ENTRY0_ADDOFF_bf(const void *const hw)
 {
-	return (((Dsu *)hw)->ENTRY[0].reg & DSU_ENTRY_ADDOFF_Msk) >> DSU_ENTRY_ADDOFF_Pos;
+	return (((Dsu *)hw)->ENTRY0.reg & DSU_ENTRY0_ADDOFF_Msk) >> DSU_ENTRY0_ADDOFF_Pos;
 }
 
 static inline hri_dsu_entry0_reg_t hri_dsu_get_ENTRY0_reg(const void *const hw, hri_dsu_entry0_reg_t mask)
 {
 	uint32_t tmp;
-	tmp = ((Dsu *)hw)->ENTRY[0].reg;
+	tmp = ((Dsu *)hw)->ENTRY0.reg;
 	tmp &= mask;
 	return tmp;
 }
 
 static inline hri_dsu_entry0_reg_t hri_dsu_read_ENTRY0_reg(const void *const hw)
 {
-	return ((Dsu *)hw)->ENTRY[0].reg;
+	return ((Dsu *)hw)->ENTRY0.reg;
 }
 
 static inline hri_dsu_entry1_reg_t hri_dsu_get_ENTRY1_reg(const void *const hw, hri_dsu_entry1_reg_t mask)
 {
 	uint32_t tmp;
-	tmp = ((Dsu *)hw)->ENTRY[1].reg;
+	tmp = ((Dsu *)hw)->ENTRY1.reg;
 	tmp &= mask;
 	return tmp;
 }
 
 static inline hri_dsu_entry1_reg_t hri_dsu_read_ENTRY1_reg(const void *const hw)
 {
-	return ((Dsu *)hw)->ENTRY[1].reg;
+	return ((Dsu *)hw)->ENTRY1.reg;
 }
 
 static inline hri_dsu_end_reg_t hri_dsu_get_END_END_bf(const void *const hw, hri_dsu_end_reg_t mask)

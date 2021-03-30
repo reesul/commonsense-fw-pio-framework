@@ -42,7 +42,7 @@
 #include <hri_cmcc_d51.h>
 #include <hri_dac_d51.h>
 #include <hri_dmac_d51.h>
-#include <hri_dsu_d51.h>
+// #include <hri_dsu_d51.h>
 #include <hri_eic_d51.h>
 #include <hri_evsys_d51.h>
 #include <hri_freqm_d51.h>
