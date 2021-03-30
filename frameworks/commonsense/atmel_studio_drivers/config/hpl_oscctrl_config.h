@@ -121,7 +121,7 @@
 // <i> Indicates whether configuration for XOSC1 is enabled or not
 // <id> enable_xosc1
 #ifndef CONF_XOSC1_CONFIG
-#define CONF_XOSC1_CONFIG 1
+#define CONF_XOSC1_CONFIG 0
 #endif
 
 // <o> Frequency <8000000-48000000>
@@ -136,7 +136,7 @@
 // <i> Indicates whether External Multipurpose Crystal Oscillator is enabled or not
 // <id> xosc1_arch_enable
 #ifndef CONF_XOSC1_ENABLE
-#define CONF_XOSC1_ENABLE 1
+#define CONF_XOSC1_ENABLE 0
 #endif
 
 // <o> Start-Up Time
@@ -382,7 +382,7 @@
 // <i> Indicates whether configuration for FDPLL0 is enabled or not
 // <id> enable_fdpll0
 #ifndef CONF_FDPLL0_CONFIG
-#define CONF_FDPLL0_CONFIG 0
+#define CONF_FDPLL0_CONFIG 1
 #endif
 
 // <y> Reference Clock Source
@@ -412,7 +412,7 @@
 // <i> Indicates whether Digital Phase Locked Loop is enabled or not
 // <id> fdpll0_arch_enable
 #ifndef CONF_FDPLL0_ENABLE
-#define CONF_FDPLL0_ENABLE 0
+#define CONF_FDPLL0_ENABLE 1
 #endif
 
 // <q> On Demand Control
@@ -433,14 +433,14 @@
 // <i> Value of LDRFRAC is calculated using Fclk_dpll=Fckr*(LDR+1+LDRFRAC/32) formula as given in datasheet. This value is directly written in to DPLLRATIO register
 // <id> fdpll0_ldrfrac
 #ifndef CONF_FDPLL0_LDRFRAC
-#define CONF_FDPLL0_LDRFRAC 0xd
+#define CONF_FDPLL0_LDRFRAC 0x4
 #endif
 
 // <o> Loop Divider Ratio Integer Part <0x0-0x1FFF>
 // <i> Value of LDR is calculated using Fclk_dpll=Fckr*(LDR+1+LDRFRAC/32) formula as given in datasheet. This value is directly written in to DPLLRATIO register
 // <id> fdpll0_ldr
 #ifndef CONF_FDPLL0_LDR
-#define CONF_FDPLL0_LDR 0x5b7
+#define CONF_FDPLL0_LDR 0xe4d
 #endif
 
 // <o> Clock Divider <0x0-0x7FF>
