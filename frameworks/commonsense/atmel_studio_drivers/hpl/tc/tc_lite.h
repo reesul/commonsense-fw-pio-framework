@@ -1,9 +1,10 @@
+
 /**
  * \file
  *
- * \brief Port
+ * \brief TC related functionality declaration.
  *
- * Copyright (c) 2014-2018 Microchip Technology Inc. and its subsidiaries.
+ * Copyright (c) 2017 Microchip Technology Inc. and its subsidiaries.
  *
  * \asf_license_start
  *
@@ -31,14 +32,33 @@
  *
  */
 
-#include "hal_gpio.h"
+#ifndef _TC_H_INCLUDED
+#define _TC_H_INCLUDED
+
+#include <compiler.h>
+#include <utils_assert.h>
 
 /**
- * \brief Driver version
+ * \addtogroup tc driver
+ *
+ * \section tc Revision History
+ * - v0.0.0.1 Initial Commit
+ *
+ *@{
  */
-#define DRIVER_VERSION 0x00000001u
 
-uint32_t gpio_get_version(void)
-{
-	return DRIVER_VERSION;
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/**
+ * \brief Initialize tc interface
+ * \return Initialization status.
+ */
+int8_t TIMER_0_init();
+
+#ifdef __cplusplus
 }
+#endif
+
+#endif /* _TC_H_INCLUDED */

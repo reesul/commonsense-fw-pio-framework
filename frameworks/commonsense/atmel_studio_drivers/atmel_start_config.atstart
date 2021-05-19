@@ -2,16 +2,16 @@ format_version: '2'
 name: My Project
 versions:
   api: '1.0'
-  backend: 1.8.491
-  commit: 605bd5a7663644fb84783aa2b00942b79b0d8955
+  backend: 1.8.543
+  commit: 931b2422bde1a793dea853de68547f48bf245b0f
   content: unknown
   content_pack_name: unknown
   format: '2'
-  frontend: 1.8.491
-  packs_version_avr8: 1.0.1446
+  frontend: 1.8.543
+  packs_version_avr8: 1.0.1457
   packs_version_qtouch: unknown
   packs_version_sam: 1.0.1726
-  version_backend: 1.8.491
+  version_backend: 1.8.543
   version_frontend: ''
 board:
   identifier: CustomBoard
@@ -828,10 +828,10 @@ drivers:
     functionality: System
     api: HAL:HPL:GCLK
     configuration:
-      $input: 120000512
-      $input_id: Digital Phase Locked Loop (DPLL0)
-      RESERVED_InputFreq: 120000512
-      RESERVED_InputFreq_id: Digital Phase Locked Loop (DPLL0)
+      $input: 12000000
+      $input_id: External Crystal Oscillator 8-48MHz (XOSC1)
+      RESERVED_InputFreq: 12000000
+      RESERVED_InputFreq_id: External Crystal Oscillator 8-48MHz (XOSC1)
       _$freq_output_Generic clock generator 0: 120000512
       _$freq_output_Generic clock generator 1: 48000000
       _$freq_output_Generic clock generator 10: 12000000
@@ -1555,9 +1555,69 @@ drivers:
     variant: null
     clocks:
       domain_group: null
+  TIMER_0:
+    user_label: TIMER_0
+    definition: Atmel:SAMD51_Drivers:0.0.1::SAMD51P20A-CTF::TC0::driver_config_definition::32-bit.Counter.Mode::Lite:TC:Timer
+    functionality: Timer
+    api: Lite:TC:Timer
+    configuration:
+      cc_cc0: 0
+      cc_cc1: 0
+      cc_control: false
+      count_control: false
+      count_count: 0
+      ctrla_alock: false
+      ctrla_capten0: false
+      ctrla_capten1: false
+      ctrla_captmode0: DEFAULT
+      ctrla_captmode1: DEFAULT
+      ctrla_control: true
+      ctrla_copen0: false
+      ctrla_copen1: false
+      ctrla_enable: true
+      ctrla_mode: 2
+      ctrla_ondemand: false
+      ctrla_prescaler: DIV1
+      ctrla_prescsync: GCLK
+      ctrla_runstdby: false
+      ctrlbset_cmd: NONE
+      ctrlbset_control: false
+      ctrlbset_dir: false
+      ctrlbset_lupd: false
+      ctrlbset_oneshot: false
+      ctrlc_inven0: false
+      ctrlc_inven1: false
+      dbgctrl_control: false
+      dbgctrl_dbgrun: false
+      drvctrl_control: false
+      evctrl_control: false
+      evctrl_evact: 'OFF'
+      evctrl_mceo0: false
+      evctrl_mceo1: false
+      evctrl_ovfeo: false
+      evctrl_tcei: false
+      evctrl_tcinv: false
+      intenset_control: false
+      intenset_err: false
+      intenset_mc0: false
+      intenset_mc1: false
+      intenset_ovf: false
+      wave_control: false
+      wave_wavegen: NFRQ
+    optional_signals: []
+    variant: null
+    clocks:
+      domain_group:
+        nodes:
+        - name: TC
+          input: Generic clock generator 0
+          external: false
+          external_frequency: 0
+        configuration:
+          tc_gclk_selection: Generic clock generator 0
   PWM_0:
     user_label: PWM_0
-    definition: Atmel:SAMD51_Drivers:0.0.1::SAMD51P20A-CTF::TC0::driver_config_definition::PWM::HAL:Driver:PWM
+    definition: Atmel:SAMD51_Drivers:0.0.1::SAMD51P20A-CTF::TC2::driver_config_definition::PWM::HAL:Driver:PWM
     functionality: PWM
     api: HAL:Driver:PWM
     configuration:
@@ -1578,37 +1638,6 @@ drivers:
       tc_mode: Counter in 16-bit mode
       tc_prescaler: No division
       timer_event_control: false
-    optional_signals: []
-    variant: null
-    clocks:
-      domain_group:
-        nodes:
-        - name: TC
-          input: Generic clock generator 0
-          external: false
-          external_frequency: 0
-        configuration:
-          tc_gclk_selection: Generic clock generator 0
-  TIMER_0:
-    user_label: TIMER_0
-    definition: Atmel:SAMD51_Drivers:0.0.1::SAMD51P20A-CTF::TC1::driver_config_definition::Timer::HAL:Driver:Timer
-    functionality: Timer
-    api: HAL:Driver:Timer
-    configuration:
-      tc_arch_dbgrun: false
-      tc_arch_evact: Event action disabled
-      tc_arch_mceo0: false
-      tc_arch_mceo1: false
-      tc_arch_ondemand: false
-      tc_arch_ovfeo: false
-      tc_arch_presync: Reload or reset counter on next GCLK
-      tc_arch_runstdby: false
-      tc_arch_tcei: false
-      tc_arch_tcinv: false
-      timer_advanced_configuration: false
-      timer_event_control: false
-      timer_prescaler: No division
-      timer_tick: 0
     optional_signals: []
     variant: null
     clocks:
